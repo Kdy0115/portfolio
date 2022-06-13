@@ -27,7 +27,6 @@ export default function ButtonAppBar() {
             Works
             Contact
           </Typography>
-          <Button sx={{ color:'#6B6B6B'}}>Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
