@@ -10,8 +10,8 @@ export default function DetailProfileInAbout() {
     <React.Fragment>
       <CssBaseline />
         <Box sx={{ ml:'10%' }}>
-            <Box sx={{ fontSize:'24px', mb:'1%' }}>Details</Box>
-            <Box sx={{ fontSize:'20px', width: '90%' }}>
+            <Box sx={{ fontSize:'24px', mb:'1%', color:'#767676' }}>Details</Box>
+            <Box sx={{ fontSize:'20px', width: '90%', color:'#767676' }}>
                 あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
                 あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
                 あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ

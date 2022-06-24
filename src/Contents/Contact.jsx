@@ -2,44 +2,54 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+import ContactWelcomeMessage from '../Components/ContactComponents/ContactWelcomeMessage';
+import ContactForm from '../Components/ContactComponents/ContactForm';
+import ContactShareLink from '../Components/ContactComponents/ContactShareLink';
+import { useInView } from 'react-intersection-observer';
+import FadeIn from 'react-fade-in/lib/FadeIn';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
-
+const theme = createTheme({
+    status: {
+      danger: '#e53e3e',
+    },
+    palette: {
+      primary: {
+        main: '#B8FFD4',
+        darker: '#053e85',
+      },
+      neutral: {
+        main: '#64748B',
+        contrastText: '#fff',
+      },
+    },
+  });
 
 export default function ContactContent() {
+  const { ref, inView } = useInView({
+    // オプション
+    rootMargin: '-150px', // ref要素が現れてから50px過ぎたら
+    triggerOnce: true, // 最初の一度だけ実行
+  });
+
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
-      <Container maxWidth="xl">
-        <Box sx={{ bgcolor: '#FFFFFF', height: '100vh'}}>
-            あいうえお
-            <Box sx={{ flexGrow: 1, height: '100vh' }}>
-                <Grid container spacing={2}>
-                  <Grid item xs={8}>
-                    <Item>xs=8</Item>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <Item>xs=4</Item>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <Item>xs=4</Item>
-                  </Grid>
-                  <Grid item xs={8}>
-                    <Item>xs=8</Item>
-                  </Grid>
-                </Grid>
-            </Box>
-        </Box>
-      </Container>
-    </React.Fragment>
+      {/* <ThemeProvider theme={theme}> */}
+        <Container maxWidth="xl">
+          <Box sx={{ height: '100vh'}}>
+            <Box sx={{ height: '15vh', ml:'0%', textAlign:'center', fontSize:'40px', mt:'3%', mb:'-4%', color:'#767676' }} ref={ ref } >Contact</Box>
+            <Box sx={{ height:'0.5vh', width: '10%', mb:'3%', ml:'45%', bgcolor:'#99FFC2'}} />
+            {inView && (
+              <FadeIn transitionDuration="1600">
+                <ContactWelcomeMessage />
+                <ContactForm />
+                <ContactShareLink />
+              </FadeIn>
+            )}
+          </Box>
+        </Container>
+      {/* </ThemeProvider> */}
+    </>
   );
 };
