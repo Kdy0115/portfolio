@@ -18,17 +18,20 @@ const theme = createTheme({
   });
 
 export default function ContactForm() {
-  const [mail, setMail] = useState(''); // 「ご氏名」の部分
-  const [name, setName] = useState(''); // 「会社名」の部分
+  const [mail, setMail] = useState('');
+  const [name, setName] = useState('');
   const [comment, setComment] = useState('');
 
+
     return (
-        <Box sx={{ mt:'3%' }}>
+        <Box sx={{ "@media screen and (min-width:520px)" : {mt:'3%'},  "@media screen and (max-width:520px)" : {mt:'7%'} }}>
             <ThemeProvider theme={theme}>
-                <FormControl sx={{ ml:'20%', width:'60%' }}>
-                        <TextField sx={{ mb:'5%' }} id="outlined-basic user-mail" label="Your Mail" variant="outlined" value={mail} onChange={(e) => setMail(e.target.value)} required/>
-                        <TextField sx={{ mb:'5%' }} id="outlined-basic user-name" label="Name" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} required/>
-                        <TextField id="outlined-multiline-flexible" label="Comment" multiline maxRows={4} sx={{ mb:'5%' }} value={comment} onChange={(e) => setComment(e.target.value)} required/>
+                <FormControl sx={{ "@media screen and (min-width:520px)" : {ml:'20%', width:'60%'},
+                                   "@media screen and (max-width:520px)" : {ml:'10%', width:'80%'},
+                 }}>
+                        <TextField sx={{ "@media screen and (min-width:520px)" : {mb:'5%'}, "@media screen and (max-width:520px)" : {mb:'10%'}}} id="outlined-basic user-mail" label="Your Mail" variant="outlined" value={mail} onChange={(e) => setMail(e.target.value)} required/>
+                        <TextField sx={{ "@media screen and (min-width:520px)" : {mb:'5%'}, "@media screen and (max-width:520px)" : {mb:'10%'}}} id="outlined-basic user-name" label="Name" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} required/>
+                        <TextField sx={{ "@media screen and (min-width:520px)" : {mb:'5%'}, "@media screen and (max-width:520px)" : {mb:'10%'}}} id="outlined-multiline-flexible contact-input" label="Comment" multiline maxRows={4} value={comment} onChange={(e) => setComment(e.target.value)} required/>
                         <ContactSubmitButton senderMail={ mail } senderName={ name } senderComment={ comment } />
                 </FormControl>
             </ThemeProvider>

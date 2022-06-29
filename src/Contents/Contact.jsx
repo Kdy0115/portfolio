@@ -37,9 +37,13 @@ export default function ContactContent() {
       <CssBaseline />
       {/* <ThemeProvider theme={theme}> */}
         <Container maxWidth="xl">
-          <Box sx={{ height: '100vh'}}>
-            <Box sx={{ height: '15vh', ml:'0%', textAlign:'center', fontSize:'40px', mt:'3%', mb:'-4%', color:'#767676' }} ref={ ref } >Contact</Box>
-            <Box sx={{ height:'0.5vh', width: '10%', mb:'3%', ml:'45%', bgcolor:'#99FFC2'}} />
+          <Box sx={{ height: '95vh'}}>
+            <Box sx={{ "@media screen and (min-width:520px)" : {height: '15vh', ml:'0%', textAlign:'center', fontSize:'40px', mt:'3%', mb:'-4%', color:'#767676'},
+                       "@media screen and (max-width:520px)" : {height: '8vh', ml:'0%', textAlign:'center', fontSize:'28px', mt:'3%', mb:'-4%', color:'#767676' },
+            }} ref={ ref } >Contact</Box>
+            <Box sx={{  "@media screen and (min-width:520px)" : {height:'0.5vh', width: '10%', mb:'3%', ml:'45%', bgcolor:'#99FFC2'},
+                        "@media screen and (max-width:520px)" : {height:'0.5vh', width: '10%', bgcolor:'#99FFC2', width: '25%', ml:'37.5%', mb:'5%'}
+            }}/>
             {inView && (
               <FadeIn transitionDuration="1600">
                 <ContactWelcomeMessage />

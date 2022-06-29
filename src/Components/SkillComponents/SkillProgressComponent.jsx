@@ -63,8 +63,15 @@ export default function LinearWithValueLabel(props) {
     }, [progress]);
 
     return (
-      <Box sx={{ mb: '3%' }}>
-        <Typography sx={{ fontSize:'18px', color:'#767676' }}>{skill}</Typography>
+      <Box sx={{ "@media screen and (min-width:520px)" : {mb: '3%'},
+                 "@media screen and (max-width:520px)" : {mb: '0%'}
+       }}>
+        <Typography 
+          sx={{ "@media screen and (min-width:520px)" : {fontSize:'18px', color:'#767676'},
+                "@media screen and (max-width:520px)" : {fontSize:'12px', color:'#767676'}
+         }}>
+          {skill}
+        </Typography>
           <LinearProgressWithLabel value={progress} />
       </Box>
     );

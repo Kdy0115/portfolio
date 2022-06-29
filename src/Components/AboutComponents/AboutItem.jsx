@@ -9,12 +9,16 @@ export default function ProfileItemInAbout(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-        <Grid container spacing={2}>
+        <Grid container spacing={1}>
           <Grid item xs={4}>
-            <Box sx={{ mb:'10%', fontSize: '28px' }}>{ title }</Box>
+            <Box sx={{ "@media screen and (min-width:520px)" : {mb:'10%', fontSize: '28px'},
+                       "@media screen and (max-width:520px)" : {mb:'10%', fontSize: '16px'},
+             }}>{ title }</Box>
           </Grid>
           <Grid item xs={8}>
-            <Box sx={{ fontSize:'28px' }}>{ content }</Box>
+            <Box sx={{ "@media screen and (min-width:520px)" : {fontSize:'28px'},
+                       "@media screen and (max-width:520px)" : {fontSize:'16px'},
+             }}>{ content }</Box>
           </Grid>
         </Grid>
     </React.Fragment>

@@ -21,13 +21,19 @@ export default function WorksContent() {
     <>
       <CssBaseline />
       <Container maxWidth="xl">
-        <Box sx={{ height: '100vh'}}>
-          <Box sx={{ height: '15vh', ml:'0%', textAlign:'center', fontSize:'40px', mt:'3%', mb:'-4%', color:'#767676' }} ref={ ref } >Works</Box>
-          <Box sx={{ height:'0.5vh', width: '10%', bgcolor:'#FFE895', mb:'3%', ml:'45%'}} />
+        <Box sx={{ "@media screen and (min-width:520px)" : {height: '100vh'},
+                   "@media screen and (max-width:520px)" : {height: '135vh'},      
+        }}>
+          <Box sx={{ "@media screen and (min-width:520px)" : {height: '15vh', ml:'0%', textAlign:'center', fontSize:'40px', mt:'3%', mb:'-4%', color:'#767676'},
+                     "@media screen and (max-width:520px)" : {height: '8vh', ml:'0%', textAlign:'center', fontSize:'28px', mt:'3%', mb:'-4%', color:'#767676'},
+           }} ref={ ref } >Works</Box>
+          <Box sx={{ "@media screen and (min-width:520px)" : {height:'0.5vh', width: '10%', bgcolor:'#FFE895', mb:'3%', ml:'45%'},
+                     "@media screen and (max-width:520px)" : {height:'0.5vh', width: '10%', bgcolor:'#FFE895', width: '25%', ml:'37.5%', mb:'10%'},
+            }} />
           {inView && (
             <FadeIn transitionDuration="1600">
               <WorksCardsBox />
-              <BasicPagination />
+              {/* <BasicPagination /> */}
             </FadeIn>
           )}
         </Box>

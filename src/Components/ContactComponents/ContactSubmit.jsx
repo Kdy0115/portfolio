@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
@@ -7,6 +7,7 @@ import { Typography } from '@mui/material';
 import { init, send } from 'emailjs-com';
 import Alert from '@mui/material/Alert';
 import Collapse from '@mui/material/Collapse';
+import MediaQuery from "react-responsive";
 
 const theme = createTheme({
     palette: {
@@ -34,7 +35,6 @@ export default function ContactSubmitButton(props) {
     const userID = "4cnDOmionBiT01_t2";
     const serviceID = "portfolio_mail";
     const templateID = "template_3ofd47s";
-
     if (userID !== undefined && serviceID !== undefined && templateID !== undefined) {
       init(userID);
   
@@ -53,6 +53,7 @@ export default function ContactSubmitButton(props) {
           setSubmitText('SEND');
           setElLoading(true)
           setAlert({...alert, open: true, alertType: 'success', alertMessage: 'Successfully sending your mail!'})
+          
           setTimeout(() => {
             setAlert({...alert, open: false, alertType: '', alertMessage: ''})
             setElLoading(false)
@@ -61,6 +62,7 @@ export default function ContactSubmitButton(props) {
       } else{
         setElLoading(true)
         setAlert({...alert, open: true, alertType: 'error', alertMessage: 'Error sending your mail!'})
+        // clearInput();
         setTimeout(() => {
           setAlert({...alert, open: false, alertType: '', alertMessage: ''})
           setElLoading(false)
@@ -74,16 +76,30 @@ export default function ContactSubmitButton(props) {
   };
   return (
     <>
-      <Stack direction="row" spacing={2} sx={{ ml:'20%', mb: '5%'}}>
-        <ThemeProvider theme={theme}>
-          <LoadingButton disabled={elLoading} loading={loading} variant="contained" endIcon={<SendIcon />} sx={{ ml:'25%', width:'25%', height:'6vh', fontSize:'20px', color:'#767676' }} color="primary" size="large"  onClick={handleClick}>
-            <Typography color='text.main'>{ submitText }</Typography>
-          </LoadingButton>
-        </ThemeProvider>
-      </Stack>
-      <Collapse sx={{mb:"3%"}} in={alert.open} >
-       <Alert severity={ alert.alertType }>{ alert.alertMessage }</Alert>
-      </Collapse>
+      <MediaQuery query="(min-width: 520px)">
+        <Stack direction="row" spacing={2} sx={{ ml:'20%', mb: '5%'}}>
+          <ThemeProvider theme={theme}>
+            <LoadingButton disabled={elLoading} loading={loading} variant="contained" endIcon={<SendIcon />} sx={{ ml:'25%', width:'25%', height:'6vh', fontSize:'20px', color:'#767676' }} color="primary" size="large"  onClick={handleClick}>
+              <Typography color='text.main'>{ submitText }</Typography>
+            </LoadingButton>
+          </ThemeProvider>
+        </Stack>
+        <Collapse sx={{mb:"3%"}} in={alert.open} >
+         <Alert severity={ alert.alertType }>{ alert.alertMessage }</Alert>
+        </Collapse>
+      </MediaQuery>
+      <MediaQuery query="(max-width: 520px)">
+        <Stack direction="row" spacing={2} sx={{ ml:'20%', mb: '5%'}}>
+          <ThemeProvider theme={theme}>
+            <LoadingButton disabled={elLoading} loading={loading} variant="contained" endIcon={<SendIcon />} sx={{ ml:'15%', width:'50%', height:'6vh', fontSize:'20px', color:'#767676' }} color="primary" size="medium"  onClick={handleClick}>
+              <Typography color='text.main'>{ submitText }</Typography>
+            </LoadingButton>
+          </ThemeProvider>
+        </Stack>
+        <Collapse sx={{mb:"3%"}} in={alert.open} >
+         <Alert severity={ alert.alertType }>{ alert.alertMessage }</Alert>
+        </Collapse>
+      </MediaQuery>      
     </>
   );
 }

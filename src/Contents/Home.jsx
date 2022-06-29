@@ -8,7 +8,7 @@ export default function HomeContent() {
   return (
     <>
       <CssBaseline />
-        <Container maxWidth="xl">
+        <Container>
             <Album>
               <ParticlesBg type="polygon" bg={true} num={3}/>
             </Album>

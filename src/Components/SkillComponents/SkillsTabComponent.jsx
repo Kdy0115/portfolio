@@ -9,6 +9,7 @@ import SkillsProgressForDevOps from './SkillsProgressForDevOps';
 import SkillsProgressForUtilities from './SkillsProgressForUtilities';
 import SkillsProgressForBusiness from './SkillsProgressForUtilitiesBusiness';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import MediaQuery from "react-responsive";
 
 const theme = createTheme({
     status: {
@@ -73,12 +74,22 @@ export default function SkillsTabComponent() {
     <ThemeProvider theme={theme}>
         <Box sx={{ width: '80%', ml: '10%', mt: '-2%' }}>
           <Box sx={{ borderColor: 'divider' }}>
-            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" color='primary' centered='true' textColor='text.main'>
-              <Tab label="Application" {...a11yProps(0)} sx={{ width: '25%', fontSize: '20px', color:'#767676' }} />
-              <Tab label="DevOps" {...a11yProps(1)} sx={{ width: '25%', fontSize: '20px', color:'#767676' }} />
-              <Tab label="Utilities" {...a11yProps(2)} sx={{ width: '25%', fontSize: '20px', color:'#767676' }} />
-              <Tab label="Business" {...a11yProps(3)} sx={{ width: '25%', fontSize: '20px', color:'#767676' }} />
-            </Tabs>
+            <MediaQuery query="(min-width: 520px)">
+              <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" color='primary' centered='true' textColor='text.main'>
+                <Tab label="Application" {...a11yProps(0)} sx={{ width: '25%', fontSize: '20px', color:'#767676' }} />
+                <Tab label="DevOps" {...a11yProps(1)} sx={{ width: '25%', fontSize: '20px', color:'#767676' }} />
+                <Tab label="Utilities" {...a11yProps(2)} sx={{ width: '25%', fontSize: '20px', color:'#767676' }} />
+                <Tab label="Business" {...a11yProps(3)} sx={{ width: '25%', fontSize: '20px', color:'#767676' }} />
+              </Tabs>
+            </MediaQuery>
+            <MediaQuery query="(max-width: 520px)">
+              <Tabs value={value} scrollButtons={false} variant="scrollable" onChange={handleChange} aria-label="basic tabs example" color='primary' centered='true' textColor='text.main'>
+                <Tab label="Application" {...a11yProps(0)} sx={{ fontSize: '12px', color:'#767676', width:'30%' }} />
+                <Tab label="DevOps" {...a11yProps(1)} sx={{ fontSize: '12px', color:'#767676' ,width:'30%'}} />
+                <Tab label="Utilities" {...a11yProps(2)} sx={{ fontSize: '12px', color:'#767676',width:'30%' }} />
+                <Tab label="Business" {...a11yProps(3)} sx={{ fontSize: '12px', color:'#767676' ,width:'30%'}} />
+              </Tabs>
+            </MediaQuery>            
           </Box>
           <TabPanel value={value} index={0}>
             <SkillsProgressForApplication />

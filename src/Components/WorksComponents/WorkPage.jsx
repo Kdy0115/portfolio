@@ -5,8 +5,10 @@ import Box from '@mui/material/Box';
 
 export default function BasicPagination() {
   return (
-    <Box sx={{ ml:'45%', mt:'2%'}}>
-      <Stack spacing={2}>
+    <Box sx={{ "@media screen and (min-width:520px)" : {ml:'30%'},
+               "@media screen and (max-width:520px)" : {pl:'30%'},
+    }}>
+      <Stack>
         <Pagination count={2} />
       </Stack>
     </Box>

@@ -8,6 +8,7 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Typography } from '@mui/material';
+import MediaQuery from "react-responsive";
 
 
 const theme = createTheme({
@@ -38,21 +39,38 @@ export default function AboutCarrerModal(props) {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
-        <Timeline sx={{ ml:'-50%' }}>
-          <TimelineItem>
-            <TimelineOppositeContent>
-              <Typography variant="h6"><strong>{ year }</strong></Typography>
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot sx={{ height:'3vh', width:'3vh'}} />
-              <TimelineConnector sx={{ height:'20vh' }} />
-            </TimelineSeparator>
-            <TimelineContent>
-              <Typography variant="h6"><strong>{ content }</strong></Typography>
-              <Typography><strong>{ detail }</strong></Typography>
-            </TimelineContent>
-          </TimelineItem>
-        </Timeline>
+        <MediaQuery query="(min-width: 520px)">
+          <Timeline sx={{ ml:'-50%' }}>
+            <TimelineItem>
+              <TimelineOppositeContent>
+                <Typography variant="h6"><strong>{ year }</strong></Typography>
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot sx={{ height:'3vh', width:'3vh'}} />
+                <TimelineConnector sx={{ height:'20vh' }} />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Typography variant="h6"><strong>{ content }</strong></Typography>
+                <Typography><strong>{ detail }</strong></Typography>
+              </TimelineContent>
+            </TimelineItem>
+          </Timeline>
+        </MediaQuery>
+        <MediaQuery query="(max-width: 520px)">
+          <Timeline sx={{ ml:'-90%' }}>
+            <TimelineItem>
+              <TimelineSeparator>
+                <TimelineDot sx={{ height:'2vh', width:'2vh'}} />
+                <TimelineConnector sx={{ height:'20vh' }} />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Typography sx={{ fontSize:'14px' }}><strong>{ year }</strong></Typography>
+                <Typography sx={{ fontSize:'15sx'}}><strong>{ content }</strong></Typography>
+                <Typography sx={{ fontSize:'12px'}}><strong>{ detail }</strong></Typography>
+              </TimelineContent>
+            </TimelineItem>
+          </Timeline>
+        </MediaQuery>
       </ThemeProvider>
     </React.Fragment>
   );

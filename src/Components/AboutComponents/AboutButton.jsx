@@ -14,14 +14,16 @@ import DialogContentText from '@mui/material/DialogContentText';
 import AboutCarrerModal from './AboutCarrierModal';
 import Fab from '@mui/material/Fab';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ClearIcon from '@mui/icons-material/Clear';
+import MediaQuery from "react-responsive";
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 1000,
-  height: 600,
+  width: '80%',
+  height: '80%',
   bgcolor: '#FFFFFF',
   border: '2px solid #000',
   boxShadow: 24,
@@ -83,7 +85,16 @@ export default function ProfileButtonInAbout() {
         <ThemeProvider theme={theme}>
           <Grid container spacing={1}>
             <Grid item xs={6}>
-              <Button variant="contained" sx={{ width:'50%' }} size='large' onClick={handleClickOpen('paper')}><Typography color='text.main' >Career</Typography></Button>
+              <MediaQuery query="(min-width: 520px)">
+                <Button variant="contained" sx={{ width:'50%' }} size='large' onClick={handleClickOpen('paper')}>
+                  <Typography color='text.main' >Career</Typography>
+                </Button>
+              </MediaQuery>
+              <MediaQuery query="(max-width: 520px)">
+                <Button variant="contained" size='medium' onClick={handleClickOpen('paper')}>
+                  <Typography sx={{ fontSize:'14px' }} color='text.main' >Career</Typography>
+                </Button>
+              </MediaQuery>
               <Dialog
                 open={open}
                 onClose={handleClose}
@@ -130,14 +141,23 @@ export default function ProfileButtonInAbout() {
                       "/>                                                                  
                   </DialogContentText>
                 </DialogContent>
-                <Fab color="primary" aria-label="add" sx={{ position: 'absolute', bottom:30, left:30}} onClick={handleClose}>
-                  <ChevronLeftIcon sx={{ color:'#ffffff' }}/>
+                <Fab color='primary' aria-label="add" sx={{ position: 'absolute', top:10, right:30, height:'3vh', width:'5vh'}} onClick={handleClose}>
+                  <ClearIcon />
                 </Fab>
               </Dialog>
 
             </Grid>
             <Grid item xs={6}>
-              <Button variant="contained" sx={{ width:'50%', ml:'-20%' }} size='large' onClick={handleOpen1} ><Typography color='text.main'>CERTIFICATION</Typography></Button>
+              <MediaQuery query="(min-width: 520px)">
+                <Button variant="contained" sx={{ width:'50%', ml:'-20%' }} size='large' onClick={handleOpen1} >
+                  <Typography color='text.main'>CERTIFICATION</Typography>
+                </Button>
+              </MediaQuery>
+              <MediaQuery query="(max-width: 520px)">
+                <Button variant="contained" size='medium' onClick={handleOpen1} sx={{ ml:'-20%'}}>
+                  <Typography sx={{ fontSize:'14px' }}color='text.main'>CERTIFICATION</Typography>
+                </Button>
+              </MediaQuery>
               <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -152,11 +172,11 @@ export default function ProfileButtonInAbout() {
                 <Fade in={open1}>
                   <Box sx={style}>
                     <Typography id="transition-modal-title" variant="h6" component="h2">
-                      Text in a modal
+                      Coming Soon!
                     </Typography>
-                    <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                      Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+                    <Fab color='primary' aria-label="add" sx={{ position: 'absolute', top:10, right:30, height:'3vh', width:'5vh'}} onClick={handleClose1}>
+                      <ClearIcon />
+                    </Fab>
                   </Box>
                 </Fade>
               </Modal>

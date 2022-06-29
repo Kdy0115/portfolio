@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';	
-import Link from '@mui/material/Link';
 
 
 const theme = createTheme({
@@ -18,12 +17,6 @@ const theme = createTheme({
 });
 
 export default function ButtonAppBar() {
-  function click() {
-    window.location.href = '#home';
-  }
-  function click1() {
-    window.location.href = '#about';
-  }
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>

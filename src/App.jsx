@@ -8,6 +8,8 @@ import WorksContent from "./Contents/Works";
 import "./style.css";
 import Fab from '@mui/material/Fab';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import MediaQuery from "react-responsive";
+
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -44,14 +46,23 @@ function App() {
     <div className="App">
       {/* <ThemeProvider theme={theme}> */}
         <ButtonAppBar />
-        <div id="home"><HomeContent /></div>
-        <div id="about" class="page-elem"><AboutContent /></div>
-        <div id="skills" class="page-elem"><SkillsContent /></div>
-        <div id="works" class="page-elem"><WorksContent /></div>
-        <div id="contact" class="page-elem"><ContactContent /></div>
+        <MediaQuery query="(max-width: 520px)">
+          <div id="home" class="page-elem-sm"><HomeContent /></div>
+          <div id="about" class="page-elem-sm"><AboutContent /></div>
+          <div id="skills" class="page-elem-sm"><SkillsContent /></div>
+          <div id="works" class="page-elem-sm"><WorksContent /></div>
+          <div id="contact" class="page-elem-sm"><ContactContent /></div>
+        </MediaQuery>
+        <MediaQuery query="(min-width: 521px)">
+          <div id="home"><HomeContent /></div>
+          <div id="about" class="page-elem"><AboutContent /></div>
+          <div id="skills" class="page-elem"><SkillsContent /></div>
+          <div id="works" class="page-elem"><WorksContent /></div>
+          <div id="contact" class="page-elem"><ContactContent /></div>
+        </MediaQuery>
         <ThemeProvider theme={theme}>
-          <Fab aria-label="add" color="primary" sx={{ position: 'fixed', bottom:30, right:30, bgcolor:"#95BFFF" }} onClick={handleTop}>
-            <ExpandLessIcon color="text.main"/>
+          <Fab aria-label="add" color="primary" sx={{ position: 'fixed', bottom:30, right:30, bgcolor:"transparent" }} onClick={handleTop}>
+            <ExpandLessIcon sx={{ bgcolor:"transparent" }} color="text.main"/>
           </Fab>
         </ThemeProvider>
         {/* <FooterNavigation /> */}
