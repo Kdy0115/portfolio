@@ -33,7 +33,7 @@ export default function ContactShareLink() {
                             <Button href="#text-buttons">
                                 <FacebookIcon fontSize="large"/>
                             </Button>
-                            <Typography sx={{ ml:'-1%'}} color='text.main'>FaceBook</Typography>
+                            <Typography sx={{ ml:'-1%'}} color='text.main'>Facebook</Typography>
                         </Grid> 
                         <Grid item xs={4} >
                             <Button href="#text-buttons">

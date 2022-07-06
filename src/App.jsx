@@ -9,31 +9,14 @@ import "./style.css";
 import Fab from '@mui/material/Fab';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import MediaQuery from "react-responsive";
-
-
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const theme = createTheme({
-  status: {
-    danger: '#e53e3e',
-  },
-  palette: {
-    primary: {
-      main: '#95BFFF',
-      darker: '#297ADF',
-    },
-    secondary: {
-      main: '#5F5F5F'
-    },
-    neutral: {
-      main: '#64748B',
-      contrastText: '#fff',
-    },
-    text:{
-      main:'#FFFFFF'
-    }
-  },
-});
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from "./views/BaseStyle";
+import HeaderMenu from "./views/modules/HeaderMenu";
+import PageHome from "./views/pages/Home";
+import PageAbout from "./views/pages/About";
+import PageSkills from "./views/pages/Skills";
+import PageWorks from "./views/pages/Works";
+import PageContact from "./views/pages/Contact";
 
 function App() {
   const handleTop = () => {
@@ -44,8 +27,15 @@ function App() {
   };  
   return (
     <div className="App">
+      <ThemeProvider theme={theme} >
+        <HeaderMenu />
+        <PageHome />
+        <PageAbout />
+        <PageSkills />
+        <PageWorks />
+        <PageContact />
       {/* <ThemeProvider theme={theme}> */}
-        <ButtonAppBar />
+        {/* <ButtonAppBar />
         <MediaQuery query="(max-width: 520px)">
           <div id="home" class="page-elem-sm"><HomeContent /></div>
           <div id="about" class="page-elem-sm"><AboutContent /></div>
@@ -64,9 +54,8 @@ function App() {
           <Fab aria-label="add" color="primary" sx={{ position: 'fixed', bottom:30, right:30, bgcolor:"transparent" }} onClick={handleTop}>
             <ExpandLessIcon sx={{ bgcolor:"transparent" }} color="text.main"/>
           </Fab>
+        </ThemeProvider> */}
         </ThemeProvider>
-        {/* <FooterNavigation /> */}
-      {/* </ThemeProvider> */}
     </div>
   );
 }

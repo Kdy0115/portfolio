@@ -8,10 +8,10 @@ export default function ContactWelcomeMessage() {
     <React.Fragment>
         <Box>
           <MediaQuery query="(min-width: 520px)">
-            <Typography variant="h4" align="center" sx={{ color:'#767676'}}>Please fell free to contact me!</Typography>
+            <Typography variant="h4" align="center" sx={{ color:'#767676'}}>Please feel free to contact me!</Typography>
           </MediaQuery>
           <MediaQuery query="(max-width: 520px)">
-            <Typography variant="h6" align="center" sx={{ color:'#767676'}}>Please fell free to contact me!</Typography>
+            <Typography variant="h6" align="center" sx={{ color:'#767676'}}>Please feel free to contact me!</Typography>
           </MediaQuery>          
         </Box>
     </React.Fragment>
