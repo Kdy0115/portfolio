@@ -12,6 +12,7 @@ const MotionFlex = motion(Flex);
 // nav items are four pages: about, skills, works, contact
 const navItems = ['about', 'skills', 'works', 'contact'];
 
+const homeUrl = process.env.PUBLIC_URL;
 // nav bar component
 const Navigation = () => {
   return (
@@ -31,7 +32,7 @@ const Navigation = () => {
           <Center>
             <Link
               as={RouterLink}
-              to={`/about`}
+              to={homeUrl + `/about`}
               key={0}
               // paddingRight="3rem"
               color="white"
@@ -42,7 +43,7 @@ const Navigation = () => {
           <Center>
             <Link
               as={RouterLink}
-              to={`/skills`}
+              to={homeUrl + `/skills`}
               key={1}
               // paddingRight="3rem"
               color="white"
@@ -53,7 +54,7 @@ const Navigation = () => {
           <Center>
             <Link
               as={RouterLink}
-              to={`/contact`}
+              to={homeUrl + `/contact`}
               key={2}
               // paddingRight="3rem"
               color="white"
