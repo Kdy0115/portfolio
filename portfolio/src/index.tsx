@@ -9,6 +9,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import theme from './theme';
 import { Helmet } from 'react-helmet';
 import { StrictMode } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -33,7 +34,9 @@ root.render(
             rel="stylesheet"
           />
         </Helmet>
-        <App />
+        <Router basename={process.env.PUBLIC_URL}>
+          <App />
+        </Router>
       </ChakraProvider>
     </Provider>
   </StrictMode>
