@@ -34,9 +34,9 @@ root.render(
             rel="stylesheet"
           />
         </Helmet>
-        <Router basename={process.env.PUBLIC_URL}>
-          <App />
-        </Router>
+        {/* <Router basename={process.env.PUBLIC_URL}> */}
+        <App />
+        {/* </Router> */}
       </ChakraProvider>
     </Provider>
   </StrictMode>
