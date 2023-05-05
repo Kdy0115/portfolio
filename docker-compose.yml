@@ -1,0 +1,13 @@
+version: '3'
+services:  
+  matching-app:
+    container_name: portfolio
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - .:/usr/src/app
+    tty: true
+    ports:
+      - "3000:3000"
