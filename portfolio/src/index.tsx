@@ -36,9 +36,7 @@ root.render(
             rel="stylesheet"
           />
         </Helmet>
-        <HashRouter>
-          <App />
-        </HashRouter>
+        <App />
       </ChakraProvider>
     </Provider>
   </StrictMode>

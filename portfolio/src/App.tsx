@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import About from './components/about/about';
 import Skills from './components/skills/skills';
@@ -10,12 +10,12 @@ function App() {
   return (
     // <AnimatePresence mode="wait" initial={false}>
     <Router>
-      <Routes>
-        <Route path="/" Component={About} />
-        <Route path="/about" Component={About} />
-        <Route path="/skills" Component={Skills} />
-        <Route path="/contact" Component={Contact} />
-      </Routes>
+      <Switch>
+        <Route exact path="/" component={About} />
+        <Route path="/about" component={About} />
+        <Route path="/skills" component={Skills} />
+        <Route path="/contact" component={Contact} />
+      </Switch>
     </Router>
     // {/* </AnimatePresence> */}
   );
