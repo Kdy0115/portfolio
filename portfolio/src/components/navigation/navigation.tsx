@@ -32,7 +32,7 @@ const Navigation = () => {
           <Center>
             <Link
               as={RouterLink}
-              to={homeUrl + `/about`}
+              to="/about"
               key={0}
               // paddingRight="3rem"
               color="white"
@@ -43,7 +43,7 @@ const Navigation = () => {
           <Center>
             <Link
               as={RouterLink}
-              to={homeUrl + `/skills`}
+              to="/skills"
               key={1}
               // paddingRight="3rem"
               color="white"
@@ -54,7 +54,7 @@ const Navigation = () => {
           <Center>
             <Link
               as={RouterLink}
-              to={homeUrl + `/contact`}
+              to="/contact"
               key={2}
               // paddingRight="3rem"
               color="white"

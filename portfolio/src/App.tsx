@@ -6,16 +6,15 @@ import Skills from './components/skills/skills';
 import Contact from './components/contact/contact';
 import { AnimatePresence } from 'framer-motion';
 
-const homeUrl = process.env.PUBLIC_URL;
 function App() {
   return (
     // <AnimatePresence mode="wait" initial={false}>
     <Router>
       <Routes>
-        <Route path={homeUrl} Component={About} />
-        <Route path={homeUrl + '/about'} Component={About} />
-        <Route path={homeUrl + '/skills'} Component={Skills} />
-        <Route path={homeUrl + '/contact'} Component={Contact} />
+        <Route path="/" Component={About} />
+        <Route path="/about" Component={About} />
+        <Route path="/skills" Component={Skills} />
+        <Route path="/contact" Component={Contact} />
       </Routes>
     </Router>
     // {/* </AnimatePresence> */}
