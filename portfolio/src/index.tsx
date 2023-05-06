@@ -17,29 +17,29 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <StrictMode>
-    <Provider store={store}>
-      <ChakraProvider theme={theme}>
-        <Helmet>
-          <link
-            // href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"
-            // href="https://fonts.googleapis.com/css2?family=Noto+Sans+Japanese&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
-            rel="stylesheet"
-          />
-        </Helmet>
+  <Provider store={store}>
+    <ChakraProvider theme={theme}>
+      <Helmet>
+        <link
+          // href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"
+          // href="https://fonts.googleapis.com/css2?family=Noto+Sans+Japanese&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <HashRouter>
         <App />
-      </ChakraProvider>
-    </Provider>
-  </StrictMode>
+      </HashRouter>
+    </ChakraProvider>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
